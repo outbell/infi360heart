@@ -44,22 +44,22 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-var PORT = process.env.port || 1337;
+//var PORT = process.env.port || 1337;
 // var HOST = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 
 //var PORT = 4444;
 //var HOST = 'localhost';
 
 // Start the server
-app.set('port', process.env.PORT || 443);
+app.set('port', process.env.PORT || 1337);
 
-var server = https.createServer(app).listen(PORT);
+//var server = https.createServer(app).listen(PORT);
 //var server = https.createServer(sslOptions,app).listen(443, HOST);
 //console.log('HTTPS Server listening on %s:%s', HOST, PORT);
 
-//var server = app.listen(app.get('port'), function() {
-  //console.log('Express server listening on port ' + server.address().port);
-//});
+var server = app.listen(app.get('port'), function() {
+  console.log('Express server listening on port ' + server.address().port);
+});
 var io = require('socket.io').listen(server);
 
 // io.set('authorization', socketioJwt.authorize({
