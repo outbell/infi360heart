@@ -44,8 +44,8 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-var PORT = process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3002
-var HOST = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+var PORT = process.env.port || 1337;
+// var HOST = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 
 //var PORT = 4444;
 //var HOST = 'localhost';
@@ -53,7 +53,7 @@ var HOST = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 // Start the server
 app.set('port', process.env.PORT || 443);
 
-var server = https.createServer(app).listen(PORT, HOST);
+var server = https.createServer(app).listen(PORT);
 //var server = https.createServer(sslOptions,app).listen(443, HOST);
 //console.log('HTTPS Server listening on %s:%s', HOST, PORT);
 
